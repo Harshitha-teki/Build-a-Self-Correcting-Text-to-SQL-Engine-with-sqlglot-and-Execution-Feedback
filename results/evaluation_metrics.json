@@ -1,0 +1,1235 @@
+{
+  "configurations": {
+    "zero_shot": {
+      "accuracy_pct": 60.0,
+      "avg_iterations": 1.0,
+      "total_syntax_repairs": 1,
+      "failure_class_breakdown": {
+        "schema": 3,
+        "syntax": 1
+      },
+      "per_question": [
+        {
+          "id": 1,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 2,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 3,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 4,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND order_date <= '2025-12-31'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 5,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND order_date <= '2025-12-31'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 6,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 7,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 8,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 9,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 10,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 11,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT AVG(total_amount) AS avg_order_value FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 12,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT AVG(total_amount) AS avg_order_value FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 13,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT customer_id, name, region FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 120
+        },
+        {
+          "id": 14,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT customer_id, name, region FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 120
+        },
+        {
+          "id": 15,
+          "difficulty": "medium",
+          "status": "failed",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 5",
+          "failure_class": "schema",
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 5",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 0
+        },
+        {
+          "id": 16,
+          "difficulty": "medium",
+          "status": "failed",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 10",
+          "failure_class": "schema",
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 10",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 0
+        },
+        {
+          "id": 17,
+          "difficulty": "medium",
+          "status": "failed",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 3",
+          "failure_class": "schema",
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 3",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 0
+        },
+        {
+          "id": 18,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.region, SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.region ORDER BY total_revenue DESC, c.region",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 6
+        },
+        {
+          "id": 19,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.region, SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.region ORDER BY total_revenue DESC, c.region",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 6
+        },
+        {
+          "id": 20,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 21,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 22,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT name, region FROM customers WHERE region = 'new york'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 0
+        },
+        {
+          "id": 23,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT name, region FROM customers WHERE region = 'california'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 0
+        },
+        {
+          "id": 24,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region = 'texas'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 25,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region = 'florida'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 26,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT o.id, c.name FROM orders AS o, customers AS c",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 72000
+        },
+        {
+          "id": 27,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT o.id, c.region FROM orders AS o, customers AS c",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 72000
+        },
+        {
+          "id": 28,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.name FROM customers AS c LEFT JOIN orders AS o ON c.customer_id = o.cust_id WHERE o.id IS NULL",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 0
+        },
+        {
+          "id": 29,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT name FROM customers WHERE region IS NULL",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 20
+        },
+        {
+          "id": 30,
+          "difficulty": "hard",
+          "status": "failed",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND",
+          "failure_class": "syntax",
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "syntax",
+              "error_message": "Syntax Error: Required keyword: 'expression' missing for <class 'sqlglot.expressions.And'>. Line 1, Col: 79.\n  SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' \u001b[4mAND\u001b[0m",
+              "sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 0
+        }
+      ]
+    },
+    "syntax_schema_repair_only": {
+      "accuracy_pct": 73.33,
+      "avg_iterations": 1.133,
+      "total_schema_repairs": 3,
+      "total_syntax_repairs": 1,
+      "failure_class_breakdown": {
+        "schema": 3,
+        "syntax": 1
+      },
+      "per_question": [
+        {
+          "id": 1,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 2,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 3,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 4,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND order_date <= '2025-12-31'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 5,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND order_date <= '2025-12-31'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 6,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 7,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 8,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 9,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 10,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 11,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT AVG(total_amount) AS avg_order_value FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 12,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT AVG(total_amount) AS avg_order_value FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 13,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT customer_id, name, region FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 120
+        },
+        {
+          "id": 14,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT customer_id, name, region FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 120
+        },
+        {
+          "id": 15,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 5",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 5",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 5
+        },
+        {
+          "id": 16,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 10",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 10",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 10
+        },
+        {
+          "id": 17,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 3",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 3",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 3
+        },
+        {
+          "id": 18,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.region, SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.region ORDER BY total_revenue DESC, c.region",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 6
+        },
+        {
+          "id": 19,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.region, SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.region ORDER BY total_revenue DESC, c.region",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 6
+        },
+        {
+          "id": 20,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 21,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 22,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT name, region FROM customers WHERE region = 'new york'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 0
+        },
+        {
+          "id": 23,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT name, region FROM customers WHERE region = 'california'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 0
+        },
+        {
+          "id": 24,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region = 'texas'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 25,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region = 'florida'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 26,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT o.id, c.name FROM orders AS o, customers AS c",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 72000
+        },
+        {
+          "id": 27,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT o.id, c.region FROM orders AS o, customers AS c",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 72000
+        },
+        {
+          "id": 28,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.name FROM customers AS c LEFT JOIN orders AS o ON c.customer_id = o.cust_id WHERE o.id IS NULL",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 0
+        },
+        {
+          "id": 29,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT name FROM customers WHERE region IS NULL",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 20
+        },
+        {
+          "id": 30,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01'",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "syntax",
+              "error_message": "Syntax Error: Required keyword: 'expression' missing for <class 'sqlglot.expressions.And'>. Line 1, Col: 79.\n  SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' \u001b[4mAND\u001b[0m",
+              "sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 1
+        }
+      ]
+    },
+    "full_pipeline": {
+      "accuracy_pct": 93.33,
+      "avg_iterations": 1.333,
+      "total_semantic_repairs": 6,
+      "total_syntax_repairs": 1,
+      "failure_class_breakdown": {
+        "schema": 3,
+        "semantic": 6,
+        "syntax": 1
+      },
+      "per_question": [
+        {
+          "id": 1,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 2,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 3,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS customer_count FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 4,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND order_date <= '2025-12-31'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 5,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND order_date <= '2025-12-31'",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 6,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 7,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 8,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 9,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 10,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS line_item_count FROM line_items",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 11,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT AVG(total_amount) AS avg_order_value FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 12,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT AVG(total_amount) AS avg_order_value FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 13,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT customer_id, name, region FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 120
+        },
+        {
+          "id": 14,
+          "difficulty": "easy",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT customer_id, name, region FROM customers",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 120
+        },
+        {
+          "id": 15,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 5",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 5",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 5
+        },
+        {
+          "id": 16,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 10",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 10",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 10
+        },
+        {
+          "id": 17,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 3",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "schema",
+              "error_message": "column c.id does not exist\nLINE 1: ...tal_spend FROM customers AS c JOIN orders AS o ON c.id = o.c...\n                                                             ^\nHINT:  Perhaps you meant to reference the column \"o.id\".",
+              "sql": "SELECT c.name, SUM(o.total_amount) AS total_spend FROM customers AS c JOIN orders AS o ON c.id = o.cust_id GROUP BY c.name ORDER BY total_spend DESC, c.name LIMIT 3",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 3
+        },
+        {
+          "id": 18,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.region, SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.region ORDER BY total_revenue DESC, c.region",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 6
+        },
+        {
+          "id": 19,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.region, SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id GROUP BY c.region ORDER BY total_revenue DESC, c.region",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 6
+        },
+        {
+          "id": 20,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 21,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": false,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 1
+        },
+        {
+          "id": 22,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT name, region FROM customers WHERE region ILIKE 'new york'",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "semantic",
+              "error_message": "Query returned 0 rows, but the question implies entities exist. Check WHERE clause filters (date ranges, exact string matches, case sensitivity).",
+              "sql": "SELECT name, region FROM customers WHERE region = 'new york'",
+              "heuristic": "empty_result",
+              "sample_rows": []
+            }
+          ],
+          "row_count": 20
+        },
+        {
+          "id": 23,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT name, region FROM customers WHERE region ILIKE 'california'",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "semantic",
+              "error_message": "Query returned 0 rows, but the question implies entities exist. Check WHERE clause filters (date ranges, exact string matches, case sensitivity).",
+              "sql": "SELECT name, region FROM customers WHERE region = 'california'",
+              "heuristic": "empty_result",
+              "sample_rows": []
+            }
+          ],
+          "row_count": 20
+        },
+        {
+          "id": 24,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region ILIKE 'texas'",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "semantic",
+              "error_message": "Aggregation returned a single NULL value. The WHERE clause or the aggregated column is likely wrong (or the filter matched no rows).",
+              "sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region = 'texas'",
+              "heuristic": "null_aggregate",
+              "sample_rows": [
+                {
+                  "total_revenue": null
+                }
+              ]
+            }
+          ],
+          "row_count": 1
+        },
+        {
+          "id": 25,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region ILIKE 'florida'",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "semantic",
+              "error_message": "Aggregation returned a single NULL value. The WHERE clause or the aggregated column is likely wrong (or the filter matched no rows).",
+              "sql": "SELECT SUM(o.total_amount) AS total_revenue FROM customers AS c JOIN orders AS o ON c.customer_id = o.cust_id WHERE c.region = 'florida'",
+              "heuristic": "null_aggregate",
+              "sample_rows": [
+                {
+                  "total_revenue": null
+                }
+              ]
+            }
+          ],
+          "row_count": 1
+        },
+        {
+          "id": 26,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT o.id, c.name FROM \"orders\" AS o JOIN \"customers\" AS c ON o.cust_id = c.customer_id",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "semantic",
+              "error_message": "Result set is unusually large (72000 rows > 18000 threshold). Check for missing JOIN conditions (Cartesian product).",
+              "sql": "SELECT o.id, c.name FROM orders AS o, customers AS c",
+              "heuristic": "cartesian_product",
+              "sample_rows": [
+                {
+                  "id": 1,
+                  "name": "Customer 1"
+                },
+                {
+                  "id": 1,
+                  "name": "Customer 2"
+                },
+                {
+                  "id": 1,
+                  "name": "Customer 3"
+                }
+              ]
+            }
+          ],
+          "row_count": 600
+        },
+        {
+          "id": 27,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT o.id, c.region FROM \"orders\" AS o JOIN \"customers\" AS c ON o.cust_id = c.customer_id",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "semantic",
+              "error_message": "Result set is unusually large (72000 rows > 18000 threshold). Check for missing JOIN conditions (Cartesian product).",
+              "sql": "SELECT o.id, c.region FROM orders AS o, customers AS c",
+              "heuristic": "cartesian_product",
+              "sample_rows": [
+                {
+                  "id": 1,
+                  "region": "California"
+                },
+                {
+                  "id": 1,
+                  "region": "Texas"
+                },
+                {
+                  "id": 1,
+                  "region": "Washington"
+                }
+              ]
+            }
+          ],
+          "row_count": 600
+        },
+        {
+          "id": 28,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT c.name FROM customers AS c LEFT JOIN orders AS o ON c.customer_id = o.cust_id WHERE o.id IS NULL",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 0
+        },
+        {
+          "id": 29,
+          "difficulty": "medium",
+          "status": "success",
+          "iterations": 1,
+          "correct": true,
+          "final_sql": "SELECT name FROM customers WHERE region IS NULL",
+          "failure_class": null,
+          "repair_history": [],
+          "row_count": 20
+        },
+        {
+          "id": 30,
+          "difficulty": "hard",
+          "status": "success",
+          "iterations": 2,
+          "correct": true,
+          "final_sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01'",
+          "failure_class": null,
+          "repair_history": [
+            {
+              "attempt": 1,
+              "failure_type": "syntax",
+              "error_message": "Syntax Error: Required keyword: 'expression' missing for <class 'sqlglot.expressions.And'>. Line 1, Col: 79.\n  SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' \u001b[4mAND\u001b[0m",
+              "sql": "SELECT COUNT(*) AS order_count FROM orders WHERE order_date >= '2025-01-01' AND",
+              "heuristic": null,
+              "sample_rows": null
+            }
+          ],
+          "row_count": 1
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "dataset": "data/eval_set.json",
+    "num_questions": 30,
+    "generator": "offline_rule_based",
+    "llm_model_id": "gpt-4o-mini",
+    "eval_set_version": "unversioned",
+    "max_attempts": 3,
+    "cartesian_row_threshold": "1000"
+  }
+}
